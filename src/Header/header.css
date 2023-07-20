@@ -5,6 +5,10 @@ header {
   align-items: center;
 }
 
+header.light {
+  background-color: white;
+}
+
 header nav {
   flex-grow: 1;
 }
@@ -15,9 +19,8 @@ header nav {
   padding: 0 2rem;
 }
 
-.navLink {
-  text-decoration: none;
-  color: white;
+.logo.light {
+  color: #0d293f;
 }
 
 .navList {
