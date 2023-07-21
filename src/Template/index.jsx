@@ -8,8 +8,7 @@ import {
   IconButton,
   Avatar,
 } from "@mui/material";
-import { Link, Outlet } from "react-router-dom";
-
+import { Link, Outlet, useLocation } from "react-router-dom";
 const mainMenu = [
   { name: "Produits", url: "/" },
   { name: "Commandes", url: "/orders" },
@@ -19,7 +18,11 @@ const mainMenu = [
   { name: "Marketplaces", url: "/marketplaces" },
 ];
 
+// 3778B3
+// 8BABC4
 export default function Template() {
+  const { pathname } = useLocation();
+
   return (
     <>
       <AppBar position="static">
@@ -42,13 +45,14 @@ export default function Template() {
               Seller Catalog
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ flexGrow: 1, display: "flex" }}>
               {mainMenu.map(({ name, url }) => (
                 <Button
                   key={url}
                   component={Link}
                   to={url}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  variant="navigation"
+                  color={pathname === url ? "active" : undefined}
                 >
                   {name}
                 </Button>
