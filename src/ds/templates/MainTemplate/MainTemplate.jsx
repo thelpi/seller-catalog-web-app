@@ -20,7 +20,7 @@ const mainMenu = [
 
 // 3778B3
 // 8BABC4
-export default function Template() {
+export default function MainTemplate() {
   const { pathname } = useLocation();
 
   return (
