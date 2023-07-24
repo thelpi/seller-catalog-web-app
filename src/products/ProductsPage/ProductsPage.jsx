@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
+import { Box, LinearProgress } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import db from "../../db.json";
 import { withinRow } from "../../hoc";
+import { useProducts } from "../../hooks";
 import { ProductCondition } from "../ProductCondition";
 import { ProductImage } from "../ProductImage";
 import { ProductPrice } from "../ProductPrice";
@@ -35,10 +35,16 @@ const columns = [
 ];
 
 export default function ProductsPage() {
+  const { isLoading, data: products } = useProducts();
+
+  if (isLoading) {
+    return <LinearProgress />;
+  }
+
   return (
     <Box sx={{ height: "100%", width: "100%" }}>
       <DataGrid
-        rows={db.products}
+        rows={products}
         columns={columns}
         initialState={{
           pagination: {

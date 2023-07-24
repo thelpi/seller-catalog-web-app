@@ -27,3 +27,7 @@ yarn commit
 ```
 
 Push, deploy and enjoy!
+
+## API
+
+We tend to use '/api' to run all auor HTTP requests (with Ky)
