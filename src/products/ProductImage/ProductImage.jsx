@@ -1,12 +1,15 @@
-import { shape, string } from "prop-types";
+import { string } from "prop-types";
+import { withinRow } from "../../hoc";
 
-export default function ProductImage({ row }) {
-  return <img src={row.imageUrl} alt={row.name}></img>;
+function ProductImage({ imageUrl, name }) {
+  return <img src={imageUrl} alt={name}></img>;
 }
 
 ProductImage.propTypes = {
-  row: shape({
-    imageUrl: string,
-    name: string,
-  }),
+  imageUrl: string,
+  name: string,
 };
+
+const RowProductPrice = withinRow(ProductImage);
+
+export default RowProductPrice;

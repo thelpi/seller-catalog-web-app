@@ -1,14 +1,17 @@
-import { shape, number } from "prop-types";
+import { number } from "prop-types";
+import { withinRow } from "../../hoc";
 
-export default function ProductPrice({ row }) {
+function ProductPrice({ price }) {
   return new Intl.NumberFormat(window.navigator.language, {
     style: "currency",
     currency: "EUR",
-  }).format(row.price);
+  }).format(price);
 }
 
 ProductPrice.propTypes = {
-  row: shape({
-    price: number,
-  }),
+  price: number,
 };
+
+const RowProductPrice = withinRow(ProductPrice);
+
+export default RowProductPrice;
