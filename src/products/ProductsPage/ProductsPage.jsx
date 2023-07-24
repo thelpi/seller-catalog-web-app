@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import db from "../../db.json";
+import { withinRow } from "../../hoc";
 import { ProductCondition } from "../ProductCondition";
 import { ProductImage } from "../ProductImage";
 import { ProductPrice } from "../ProductPrice";
@@ -9,7 +10,7 @@ const columns = [
   {
     field: "imageUrl",
     headerName: "Image",
-    renderCell: ProductImage,
+    renderCell: withinRow(ProductImage),
   },
   {
     field: "productDescription",
@@ -19,12 +20,12 @@ const columns = [
   {
     field: "condition",
     headerName: "Condition",
-    renderCell: ProductCondition,
+    renderCell: withinRow(ProductCondition),
   },
   {
     field: "price",
     headerName: "Prix",
-    renderCell: ProductPrice,
+    renderCell: withinRow(ProductPrice),
   },
   {
     field: "stock",
