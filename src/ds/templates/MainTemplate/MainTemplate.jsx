@@ -19,7 +19,7 @@ const mainMenu = [
   { name: "Marketplaces", url: "/marketplaces", domain: "marketplaces" },
 ];
 
-const isCurrentTab = (url, pathname, domain) => {
+const isActiveTab = (url, pathname, domain) => {
   return url === pathname || pathname.startsWith(`/${domain}`);
 };
 
@@ -56,7 +56,7 @@ export default function MainTemplate() {
                   to={url}
                   variant="navigation"
                   color={
-                    isCurrentTab(url, pathname, domain) ? "active" : undefined
+                    isActiveTab(url, pathname, domain) ? "active" : undefined
                   }
                 >
                   {name}
