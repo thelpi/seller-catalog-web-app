@@ -9,17 +9,20 @@ import {
   Avatar,
 } from "@mui/material";
 import { Link, Outlet, useLocation } from "react-router-dom";
+
 const mainMenu = [
-  { name: "Produits", url: "/" },
-  { name: "Commandes", url: "/orders" },
-  { name: "Finance", url: "/financial" },
-  { name: "Rapports", url: "/reports" },
-  { name: "Messages", url: "/messages" },
-  { name: "Marketplaces", url: "/marketplaces" },
+  { name: "Produits", url: "/", domain: "products" },
+  { name: "Commandes", url: "/orders", domain: "orders" },
+  { name: "Finance", url: "/financial", domain: "financial" },
+  { name: "Rapports", url: "/reports", domain: "reports" },
+  { name: "Messages", url: "/messages", domain: "messages" },
+  { name: "Marketplaces", url: "/marketplaces", domain: "marketplaces" },
 ];
 
-// 3778B3
-// 8BABC4
+const isCurrentTab = (url, pathname, domain) => {
+  return url === pathname || pathname.startsWith(`/${domain}`);
+};
+
 export default function MainTemplate() {
   const { pathname } = useLocation();
 
@@ -46,13 +49,15 @@ export default function MainTemplate() {
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: "flex" }}>
-              {mainMenu.map(({ name, url }) => (
+              {mainMenu.map(({ name, url, domain }) => (
                 <Button
                   key={url}
                   component={Link}
                   to={url}
                   variant="navigation"
-                  color={pathname === url ? "active" : undefined}
+                  color={
+                    isCurrentTab(url, pathname, domain) ? "active" : undefined
+                  }
                 >
                   {name}
                 </Button>
