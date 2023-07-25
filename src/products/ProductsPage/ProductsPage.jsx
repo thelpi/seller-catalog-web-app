@@ -5,6 +5,7 @@ import { useProducts } from "../../hooks";
 import { ProductCondition } from "../ProductCondition";
 import { ProductImage } from "../ProductImage";
 import { ProductPrice } from "../ProductPrice";
+import { ProductDescription } from "../ProductDescription";
 
 const columns = [
   {
@@ -15,7 +16,8 @@ const columns = [
   {
     field: "productDescription",
     headerName: "Name",
-    valueGetter: ({ row }) => `${row.name} ${row.description}`,
+    flex: 1,
+    renderCell: withinRow(ProductDescription),
   },
   {
     field: "condition",
