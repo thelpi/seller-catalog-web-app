@@ -31,3 +31,9 @@ Push, deploy and enjoy!
 ## API
 
 We tend to use '/api' to run all auor HTTP requests (with Ky)
+
+## Design system
+
+[Figma](https://www.figma.com/)
+
+We want to use the [Atomic Design](https://blog-ux.com/quest-ce-que-latomic-design/) approach, but the [Page](./src/ds/pages/Page/Page.jsx) component won't follow this approach

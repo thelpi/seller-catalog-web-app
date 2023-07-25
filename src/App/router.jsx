@@ -3,6 +3,7 @@ import OrdersRoute from "../orders/OrdersRoute";
 import ProductsRoute from "../products/ProductsRoute";
 import { MainTemplate } from "../ds/templates";
 import { ProductRoute } from "../products/ProductRoute";
+import { Page } from "../ds/pages";
 
 export const router = createBrowserRouter([
   {
@@ -27,19 +28,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/financial",
-        element: <div>Finance</div>,
+        element: <Page title="Finance" />,
       },
       {
         path: "/reports",
-        element: <div>Rapports</div>,
+        element: <Page title="Rapports" />,
       },
       {
         path: "/messages",
-        element: <div>Messages</div>,
+        element: <Page title="Messages" />,
       },
       {
         path: "/marketplaces",
-        element: <div>Marketplaces</div>,
+        element: <Page title="Marketplaces" />,
       },
     ],
   },
