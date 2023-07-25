@@ -1,4 +1,10 @@
-import { Box, LinearProgress } from "@mui/material";
+import {
+  Box,
+  Button,
+  InputAdornment,
+  LinearProgress,
+  TextField,
+} from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { withinRow } from "../../hoc";
 import { Page } from "../../ds/pages";
@@ -7,6 +13,7 @@ import { ProductCondition } from "../ProductCondition";
 import { ProductImage } from "../ProductImage";
 import { ProductPrice } from "../ProductPrice";
 import { ProductDescription } from "../ProductDescription";
+import { Search } from "@mui/icons-material";
 
 const columns = [
   {
@@ -46,6 +53,22 @@ export default function ProductsRoute() {
 
   return (
     <Page title="Gestion du catalogue">
+      {/* Ne pas faire comme ça en vrai :) */}
+      <Box sx={{ ml: 21, pb: 8 }}>
+        <TextField
+          sx={{ width: "630px" }}
+          id="input-with-icon-textfield"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search />
+              </InputAdornment>
+            ),
+          }}
+          placeholder="Rechercher par GTIN ou SKU"
+        />
+        <Button sx={{ ml: 1 }}>Recherche</Button>
+      </Box>
       <Box sx={{ height: "100%", width: "100%" }}>
         <DataGrid
           rows={products}
