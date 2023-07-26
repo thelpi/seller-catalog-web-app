@@ -4,6 +4,7 @@ import ProductsRoute from "../products/ProductsRoute";
 import { MainTemplate } from "../ds/templates";
 import { ProductRoute } from "../products/ProductRoute";
 import { Page } from "../ds/pages";
+import { FavoritesRoute } from "../favorites";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <ProductRoute />,
+      },
+      {
+        path: "/favorites",
+        element: <FavoritesRoute />,
       },
       {
         path: "/orders",

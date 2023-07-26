@@ -13,6 +13,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 const mainMenu = [
   { name: "Produits", url: "/", domain: "products" },
   { name: "Commandes", url: "/orders", domain: "orders" },
+  { name: "Favoris", url: "/favorites", domain: "favorites" },
   { name: "Finance", url: "/financial", domain: "financial" },
   { name: "Rapports", url: "/reports", domain: "reports" },
   { name: "Messages", url: "/messages", domain: "messages" },

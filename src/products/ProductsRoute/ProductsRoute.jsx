@@ -6,50 +6,10 @@ import {
   TextField,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { withinRow } from "../../hoc";
 import { Page } from "../../ds/pages";
 import { useProducts, useSearch } from "../../hooks";
-import { ProductCondition } from "../ProductCondition";
-import { ProductImage } from "../ProductImage";
-import { ProductPrice } from "../ProductPrice";
-import { ProductDescription } from "../ProductDescription";
-import { ProductActions } from "../ProductActions";
 import { Search } from "@mui/icons-material";
-
-const columns = [
-  {
-    field: "imageUrl",
-    headerName: "Image",
-    renderCell: withinRow(ProductImage),
-  },
-  {
-    field: "productDescription",
-    headerName: "Name",
-    flex: 1,
-    renderCell: withinRow(ProductDescription),
-  },
-  {
-    field: "condition",
-    headerName: "Condition",
-    renderCell: withinRow(ProductCondition),
-  },
-  {
-    field: "price",
-    headerName: "Prix",
-    renderCell: withinRow(ProductPrice),
-  },
-  {
-    field: "stock",
-    headerName: "Stock",
-    type: "number",
-  },
-  {
-    field: "actions",
-    headerName: "",
-    sortable: false,
-    renderCell: withinRow(ProductActions),
-  },
-];
+import { productColumns } from "../productColumns";
 
 export default function ProductsRoute() {
   const [searchTerm, { onSearchChange, searchSubmit }] = useSearch();
@@ -93,7 +53,7 @@ export default function ProductsRoute() {
       <Box sx={{ height: "100%", width: "100%" }}>
         <DataGrid
           rows={products}
-          columns={columns}
+          columns={productColumns}
           initialState={{
             pagination: {
               paginationModel: {
