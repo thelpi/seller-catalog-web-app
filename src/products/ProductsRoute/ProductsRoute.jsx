@@ -13,6 +13,7 @@ import { ProductCondition } from "../ProductCondition";
 import { ProductImage } from "../ProductImage";
 import { ProductPrice } from "../ProductPrice";
 import { ProductDescription } from "../ProductDescription";
+import { ProductActions } from "../ProductActions";
 import { Search } from "@mui/icons-material";
 
 const columns = [
@@ -41,6 +42,12 @@ const columns = [
     field: "stock",
     headerName: "Stock",
     type: "number",
+  },
+  {
+    field: "actions",
+    headerName: "",
+    sortable: false,
+    renderCell: withinRow(ProductActions),
   },
 ];
 
