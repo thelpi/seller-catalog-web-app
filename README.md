@@ -23,6 +23,12 @@ yarn dev
 Make your change, test it:
 
 ```shell
+yarn test
+```
+
+commit using:
+
+```shell
 yarn commit
 ```
 
