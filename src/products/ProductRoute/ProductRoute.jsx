@@ -14,13 +14,17 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { Edit, Favorite } from "@mui/icons-material";
+import { Edit, FavoriteBorder, Favorite } from "@mui/icons-material";
 import { Price } from "@/ds/atoms";
 import { ProductCondition } from "../ProductCondition";
+import { FavoritesContext } from "@/contexts";
 
 export default function ProductRoute() {
   const { id } = useParams();
   const { isLoading, data: product } = useProduct({ id });
+  const { favorites, toggleFavorites } = FavoritesContext.useContext();
+
+  const isFavorite = favorites.includes(id);
 
   if (isLoading) {
     return <LinearProgress />;
@@ -47,8 +51,12 @@ export default function ProductRoute() {
         exercitationem dicta temporibus?
       </Alert>
       <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 1, my: 2 }}>
-        <Button variant="outlined" startIcon={<Favorite />}>
-          Ajouter aux favoris
+        <Button
+          onClick={() => toggleFavorites({ id: product.id })}
+          variant="outlined"
+          startIcon={isFavorite ? <FavoriteBorder /> : <Favorite />}
+        >
+          {isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
         </Button>
         <Button startIcon={<Edit />}>Editer la fiche</Button>
       </Box>

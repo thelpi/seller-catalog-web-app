@@ -9,9 +9,10 @@ export default function useProductsByIds({ ids }) {
 
   return useQuery({
     queryKey: ["products", { ids: uniqueIds }],
-    queryFn: async () =>
-      uniqueIds.length == 0
-        ? []
-        : await api.get("products", { searchParams }).json(),
+    queryFn: async () => {
+      return ids.length > 0
+        ? await api.get("products", { searchParams }).json()
+        : [];
+    },
   });
 }
