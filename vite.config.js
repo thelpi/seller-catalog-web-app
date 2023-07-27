@@ -9,4 +9,9 @@ export default defineConfig({
     // eslint-disable-next-line no-undef
     alias: { "@": path.join(__dirname, "src") },
   },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/setupTest.js",
+  },
 });
