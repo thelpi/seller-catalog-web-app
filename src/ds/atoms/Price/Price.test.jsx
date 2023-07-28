@@ -19,4 +19,10 @@ describe("Price", () => {
 
     expect(screen.getByText("100,00 €")).toBeInTheDocument();
   });
+
+  test("with not supported currency", () => {
+    render(<Price value={100} currency="NOPE" />);
+
+    expect(screen.getByText("€100.00")).toBeInTheDocument();
+  });
 });
