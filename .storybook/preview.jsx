@@ -16,14 +16,6 @@ const preview = {
       },
     },
   },
-  argTypes: {
-    currency: {
-      options: ["USD", "EUR"],
-      control: {
-        type: "radio",
-      },
-    },
-  },
   decorators: [
     (Story) => (
       <ThemeProvider theme={theme}>

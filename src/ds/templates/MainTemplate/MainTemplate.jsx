@@ -24,6 +24,9 @@ const isActiveTab = (url, pathname, domain) => {
   return url === pathname || pathname.startsWith(`/${domain}`);
 };
 
+/**
+ * The main template of the App, we have to use it with [`<Outlet />`](https://reactrouter.com/en/main/components/outlet)
+ */
 export default function MainTemplate() {
   const { pathname } = useLocation();
 
